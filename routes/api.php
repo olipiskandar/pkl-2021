@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::get('databuku', function(){
+    return 'Data Buku';
 });
+
+Route::resource('user', 'ApiUserController');
+Route::get('pengarang', 'ApiPengarangaController@index');
+Route::post('pengarang', 'ApiPengarangaController@store');
+Route::post('pengarang/{id}', 'ApiPengarangaController@update');
+Route::post('pengarang/hapus/{id}', 'ApiPengarangaController@destroy');
